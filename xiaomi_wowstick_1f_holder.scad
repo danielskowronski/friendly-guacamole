@@ -14,23 +14,18 @@ module fhex(wid,height){
 module segment(txt=""){
   difference(){
     cube([segment_width,segment_height,segment_height]);
-    
-    
-    
-    translate([segment_width/2,segment_height/2,segment_height-hole_height]){
-      fhex(holde_width,segment_height);
-    }
 
+    translate([segment_width/2,segment_height/2,segment_height-hole_height])
+    fhex(holde_width,segment_height);
    
     extrusion=1;
     translate([0,extrusion,0])
-    rotate([90,0,0]){
-      linear_extrude(extrusion){
-        divider=3;
-        if (len(txt) == 2) { divider=5; }
-        translate([segment_width/divider,segment_width/divider,0]){
-          text(txt, size=segment_width/divider, font="Ubuntu Mono");
-        }
+    rotate([90,0,0])
+    linear_extrude(extrusion){
+      divider=3;
+      if (len(txt) == 2) { divider=5; }
+      translate([segment_width/divider,segment_width/divider,0]){
+        text(txt, size=segment_width/divider, font="Ubuntu Mono");
       }
     }
   }
@@ -51,5 +46,4 @@ module segment_in_grid(x,y,txt="",is_hole=true){
 segment_in_grid(0,0,txt="4.");
 segment_in_grid(1,0,txt="50");
 segment_in_grid(2,0,txt="mm");
-
 segment_in_grid(3,0,txt="X");
