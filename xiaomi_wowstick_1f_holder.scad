@@ -1,7 +1,7 @@
-segment_width=1;
-segment_height=1;
-holde_width=0.5;
-hole_height=0.4;
+segment_width=10;//10
+segment_height=10;//10
+holde_width=4.5;//5
+hole_height=4;//4
 
 module fhex(wid,height){
   hull(){
@@ -14,26 +14,27 @@ module fhex(wid,height){
 module segment(txt=""){
   difference(){
     cube([segment_width,segment_height,segment_height]);
+    
+    
+    
     translate([segment_width/2,segment_height/2,segment_height-hole_height]){
       fhex(holde_width,segment_height);
     }
 
+   
+    extrusion=1;
+    translate([0,extrusion,0])
     rotate([90,0,0]){
-      linear_extrude((segment_width-hole_width)/1){
-        if (len(txt) == 1) {
-          translate([segment_width/3,segment_width/3,0]){
-            text(txt, size=segment_width/3);
-          }
-        }
-        else if (len(txt) == 2){
-          translate([segment_width/4,segment_width/3,0]){
-            text(txt, size=segment_width/3);
-          }
+      linear_extrude(extrusion){
+        divider=3;
+        if (len(txt) == 2) { divider=5; }
+        translate([segment_width/divider,segment_width/divider,0]){
+          text(txt, size=segment_width/divider, font="Ubuntu Mono");
         }
       }
     }
-    
   }
+
 }
 
 module segment_in_grid(x,y,txt="",is_hole=true){
@@ -47,17 +48,8 @@ module segment_in_grid(x,y,txt="",is_hole=true){
 }
 
 //row 1
-segment_in_grid(0,0,txt="PH");
-segment_in_grid(1,0,txt="P");
-/*
-segment_in_grid(2,0);
+segment_in_grid(0,0,txt="4.");
+segment_in_grid(1,0,txt="50");
+segment_in_grid(2,0,txt="mm");
 
-//row 2
-segment_in_grid(0,1);
-segment_in_grid(1,1,false);
-segment_in_grid(2,1);
-
-//row 3
-segment_in_grid(0,2);
-segment_in_grid(1,2);
-segment_in_grid(2,2);*/
+segment_in_grid(3,0,txt="X");
