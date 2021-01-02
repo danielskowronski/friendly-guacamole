@@ -1,3 +1,8 @@
+segment_width=1;
+segment_height=1;
+holde_width=0.5;
+hole_height=0.4;
+
 module fhex(wid,height){
   hull(){
     cube([wid/1.7,wid,height],center = true);
@@ -6,27 +11,27 @@ module fhex(wid,height){
   }
 }
 
-module segment(outer_width, outer_height, holder_width, holder_height){
+module segment(){
   difference(){
-    cube([outer_width,outer_width,outer_height]);
-    translate([outer_width/2,outer_width/2,outer_height-holder_height]){
-       fhex(holder_width,outer_height);
+    cube([segment_width,segment_height,segment_height]);
+    translate([segment_width/2,segment_height/2,segment_height-hole_height]){
+       fhex(holde_width,segment_height);
     }
   }
 }
 
-module segment_in_grid(x,y, ow, oh, hw, hh){
-  translate([x*ow, y*ow, y*oh]){
-    segment(ow, oh, hw, hh);
+module segment_in_grid(x,y){
+  translate([x*segment_width, y*segment_width, y*segment_height]){
+    segment();
   }
-  translate([x*ow, y*ow, 0]){
-    cube([ow, ow, y*oh]);
+  translate([x*segment_width, y*segment_width, 0]){
+    cube([segment_width, segment_width, y*segment_height]);
   }
 }
 
-segment_in_grid(0,0,1,1,0.5,0.4);
-segment_in_grid(0,1,1,1,0.5,0.4);
-segment_in_grid(0,2,1,1,0.5,0.4);
-segment_in_grid(1,0,1,1,0.5,0.4);
-segment_in_grid(1,1,1,1,0.5,0.4);
-segment_in_grid(1,2,1,1,0.5,0.4);
+segment_in_grid(0,0);
+segment_in_grid(0,1);
+segment_in_grid(0,2);
+segment_in_grid(1,0);
+segment_in_grid(1,1);
+segment_in_grid(1,2);
