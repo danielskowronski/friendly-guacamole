@@ -16,13 +16,17 @@ module segment(outer_width, outer_height, holder_width, holder_height){
 }
 
 module segment_in_grid(x,y, ow, oh, hw, hh){
-  translate([x*ow, y*ow]){
+  translate([x*ow, y*ow, y*oh]){
     segment(ow, oh, hw, hh);
+  }
+  translate([x*ow, y*ow, 0]){
+    cube([ow, ow, y*oh]);
   }
 }
 
-//segment(outer_width=1, outer_height=1, holder_width=0.5, holder_height=0.4);
 segment_in_grid(0,0,1,1,0.5,0.4);
 segment_in_grid(0,1,1,1,0.5,0.4);
+segment_in_grid(0,2,1,1,0.5,0.4);
 segment_in_grid(1,0,1,1,0.5,0.4);
 segment_in_grid(1,1,1,1,0.5,0.4);
+segment_in_grid(1,2,1,1,0.5,0.4);
