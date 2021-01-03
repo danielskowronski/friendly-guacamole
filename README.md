@@ -6,7 +6,7 @@
 Type codes are taken from codes engraved on bits.
 
 
-### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Screw_Head_-_Torx.svg/25px-Screw_Head_-_Torx.svg.png" /> `H` - hex key: 8x standard, 1x long
+### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Screw_Head_-_Hex_Socket.svg/25px-Screw_Head_-_Hex_Socket.svg.png" /> `H` - hex / allen: 8x standard, 1x long
 ### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Screw_Head_-_Torx.svg/25px-Screw_Head_-_Torx.svg.png" /> `T`  - torx: 11x
 ### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Screw_Head_-_Phillips.svg/25px-Screw_Head_-_Phillips.svg.png" /> `PH`  - Philips: 6x standard, 2x long
 ### <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Screw_Head_-_Slotted.svg/25px-Screw_Head_-_Slotted.svg.png" /> `SL`  - slot drive: 7x standard, 1x long
