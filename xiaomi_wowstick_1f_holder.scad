@@ -1,7 +1,7 @@
-$segment_width=10;//10
-$segment_height=10;//10
-$holde_width=4.5;//5
-$hole_height=4;//4
+$segment_width=10.0; //10
+$segment_height=10.0;//10
+$holde_width=4.5;    //4.5 is the perfect value
+$hole_height=4.0;    //4
 
 $plan=[
   ["PH","PH",""  ,""  ,""  ,"PH","PH","PH","PH","PH","PH"],
@@ -34,19 +34,18 @@ module segment(txt=""){
     translate([0,extrusion,0])
     rotate([90,0,0])
     linear_extrude(extrusion){
-      divider=3;
-      if (len(txt) == 2) { divider=5; }
-      translate([$segment_width/divider,$segment_width/divider,0]){
-        text(txt, size=$segment_width/divider, font="Ubuntu Mono");
+      divider=3.0*len(txt);
+      translate([$segment_width/divider,$segment_width/4,0]){
+        text(txt, size=$segment_width/1.75, font="Ubuntu Mono:style=Bold");
       }
     }
   }
 
 }
 
-module segment_in_grid(x,y,txt="",is_hole=true){
+module segment_in_grid(x,y,txt=""){
   translate([x*$segment_width, y*$segment_width, y*$segment_height]){
-    if (is_hole) segment(txt);
+    if (len(txt)>0) segment(txt);
     else cube([$segment_width,$segment_width,$segment_height]);
   }
   translate([x*$segment_width, y*$segment_width, 0]){
@@ -54,15 +53,15 @@ module segment_in_grid(x,y,txt="",is_hole=true){
   }
 }
 
-/*
+
 segment_in_grid(0,0,txt="4.");
 segment_in_grid(1,0,txt="50");
 segment_in_grid(2,0,txt="mm");
-segment_in_grid(3,0,txt="X");*/
 
+/*
 yl=len($plan)-1;
 for (y=[0:yl]){
   for (x=[0:len($plan[yl-y])-1]){
     segment_in_grid(x,y,txt=$plan[yl-y][x]);
   }
-}
+}*/
