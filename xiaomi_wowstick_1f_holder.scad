@@ -1,6 +1,6 @@
-$segment_width=10.0; //10
+$segment_width=7.5;  //10
 $segment_height=16.0;//16
-$hole_width=4.5;     // 4.5 is the perfect value
+$hole_width=4.75;    // 4.5 is the perfect value, but tolerance is needed
 $hole_height=15.0;   //15.0 is the perfect value
 
 $plan=[
@@ -35,7 +35,7 @@ module segment(txt=""){
     rotate([90,0,0])
     linear_extrude(extrusion){
       divider=3.0*len(txt);
-      translate([$segment_width/divider,$segment_width/4,0]){
+      translate([$segment_width/divider,$segment_height-$segment_width/2,0]){
         text(txt, size=$segment_width/2, font="Ubuntu Mono:style=Bold");
       }
     }
@@ -53,14 +53,22 @@ module segment_in_grid(x,y,txt=""){
   }
 }
 
-/*
-segment_in_grid(0,0,txt="15");
-segment_in_grid(1,0,txt="mm");
-*/
 
+segment_in_grid(0,0,txt="SW");
+segment_in_grid(1,0,txt="7.");
+segment_in_grid(2,0,txt="50");
+segment_in_grid(3,0,txt="mm");
+segment_in_grid(0,1,txt="HW");
+segment_in_grid(1,1,txt="4.");
+segment_in_grid(2,1,txt="75");
+segment_in_grid(3,1,txt="mm");
+
+
+/*
 yl=len($plan)-1;
 for (y=[0:yl]){
   for (x=[0:len($plan[yl-y])-1]){
     segment_in_grid(x,y,txt=$plan[yl-y][x]);
   }
 }
+*/
