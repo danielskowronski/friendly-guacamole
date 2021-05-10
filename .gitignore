@@ -1,0 +1,6 @@
+releases/
+tests/
+*.stl
+*.lys
+*.photons
+.DS_Store
