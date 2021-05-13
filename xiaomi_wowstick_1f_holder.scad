@@ -53,7 +53,7 @@ module segment_in_grid(x,y,txt=""){
   }
 }
 
-
+/*
 segment_in_grid(0,0,txt="SW");
 segment_in_grid(1,0,txt="8.");
 segment_in_grid(2,0,txt="00");
@@ -66,13 +66,12 @@ segment_in_grid(0,2,txt="SH");
 segment_in_grid(1,2,txt="16");
 segment_in_grid(2,2,txt=".0");
 segment_in_grid(3,2,txt="mm");
+*/
 
 
-/*
 yl=len($plan)-1;
 for (y=[0:yl]){
   for (x=[0:len($plan[yl-y])-1]){
     segment_in_grid(x,y,txt=$plan[yl-y][x]);
   }
 }
-*/
