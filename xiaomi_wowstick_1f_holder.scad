@@ -1,6 +1,6 @@
-$segment_width=7.5;  //10
-$segment_height=16.0;//16
-$hole_width=4.75;    // 4.5 is the perfect value, but tolerance is needed
+$segment_width=8.0;  // 7.5 seems ok, but testing a little bit more
+$segment_height=16.0;//16.0 looks ok
+$hole_width=4.55;    // 4.5 is the perfect value, but tolerance is needed
 $hole_height=15.0;   //15.0 is the perfect value
 
 $plan=[
@@ -55,13 +55,17 @@ module segment_in_grid(x,y,txt=""){
 
 
 segment_in_grid(0,0,txt="SW");
-segment_in_grid(1,0,txt="7.");
-segment_in_grid(2,0,txt="50");
+segment_in_grid(1,0,txt="8.");
+segment_in_grid(2,0,txt="00");
 segment_in_grid(3,0,txt="mm");
 segment_in_grid(0,1,txt="HW");
 segment_in_grid(1,1,txt="4.");
-segment_in_grid(2,1,txt="75");
+segment_in_grid(2,1,txt="55");
 segment_in_grid(3,1,txt="mm");
+segment_in_grid(0,2,txt="SH");
+segment_in_grid(1,2,txt="16");
+segment_in_grid(2,2,txt=".0");
+segment_in_grid(3,2,txt="mm");
 
 
 /*
