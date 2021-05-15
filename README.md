@@ -1,6 +1,11 @@
 # Xiaomi Wowstick 1F holder
 3D object designed to hold all 56 bits of Xiaomi Wowstick 1F, groupped by bit type.
 
+<img src="assets/XWH_0.jpg" height="500px">
+
+## Source Code and Thingverse
+* [Github](https://github.com/danielskowronski/xiaomi_wowstick_1f_holder/)
+* Thingverse - [https://www.thingiverse.com/thing:4859145](https://www.thingiverse.com/thing:4859145)
 
 ## Bits
 Type codes are taken from codes engraved on bits.
